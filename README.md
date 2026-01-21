@@ -1,1 +1,2 @@
-# tetsuduki_guide_sample
+# t手続きガイドサンプル
+jsonを修正することで拡張できる手続きガイドのサンプルです  
