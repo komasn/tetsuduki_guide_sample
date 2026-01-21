@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>坂出市 手続き・持ち物シミュレーター</title>
+    <style>
+        body { font-family: "Hiragino Sans", "Meiryo", sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; padding: 20px; }
+        #app { background: white; max-width: 600px; margin: 0 auto; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .header { background: #005aab; color: white; padding: 20px; text-align: center; }
+        .content { padding: 30px; }
+        .question { font-size: 1.2rem; font-weight: bold; margin-bottom: 25px; color: #005aab; }
+        .btn-list { display: flex; flex-direction: column; gap: 12px; }
+        button { padding: 18px; border: 2px solid #005aab; background: white; color: #005aab; border-radius: 10px; cursor: pointer; font-size: 1rem; font-weight: bold; transition: all 0.2s; }
+        button:hover { background: #005aab; color: white; transform: translateY(-2px); }
+        
+        /* 結果表示エリア */
+        #result { display: none; }
+        .res-card { background: #f8f9fa; border-left: 5px solid #005aab; padding: 20px; margin-bottom: 20px; border-radius: 0 8px 8px 0; }
+        .res-label { font-weight: bold; color: #555; display: block; margin-bottom: 5px; font-size: 0.9rem; }
+        .res-value { font-size: 1.1rem; margin: 0; }
+        .warning-box { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        
+        .print-btn { background: #28a745; color: white; border: none; width: 100%; margin-top: 20px; }
+        .print-btn:hover { background: #218838; }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div class="header">
+        <h1 style="margin:0; font-size:1.4rem;">〇〇市 手続き案内システム</h1>
+    </div>
+    <div class="content">
+        <div id="ui-area">
+            <p id="question" class="question">読み込み中...</p>
+            <div id="options" class="btn-list"></div>
+        </div>
+
+        <div id="result">
+            <div class="res-card">
+                <span class="res-label">📍 手続き場所</span>
+                <p id="res-method" class="res-value"></p>
+            </div>
+            <div class="res-card">
+                <span class="res-label">💻 オンライン・コンビニ対応</span>
+                <p id="res-online" class="res-value"></p>
+            </div>
+            <div class="res-card">
+                <span class="res-label">🎒 必要な持ち物</span>
+                <ul id="res-items" style="margin:10px 0 0; padding-left:20px;"></ul>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ 注意事項</strong>
+                <p id="res-notes" style="margin:5px 0 0;"></p>
+            </div>
+            <button class="print-btn" onclick="window.print()">この内容を印刷・保存する</button>
+            <button onclick="location.reload()" style="margin-top:15px; border:none; color:#666; width:100%; cursor:pointer;">最初からやり直す</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
